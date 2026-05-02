@@ -1329,13 +1329,36 @@
 
     <!-- HEADER -->
     <header>
-                <style>
+                                <style>
             @media(max-width:900px) {
                 .header-top { flex-wrap: wrap !important; padding: 12px 4vw !important; border-bottom: none !important; }
-                .header-center.search-container { order: 3; flex: 1 1 100% !important; margin-top: 10px; padding-bottom: 10px; border-bottom: 1px solid rgba(201, 151, 58, 0.15); }
+                .header-center.search-container { order: 3; flex: 1 1 100% !important; margin-top: 10px; padding-bottom: 10px; border-bottom: 1px solid rgba(201, 151, 58, 0.15); display: flex; flex-direction: column !important; align-items: center; gap: 10px !important; }
                 .search-bar { max-width: 100% !important; }
                 .nav-logo-img { max-height: 55px !important; }
+                
+                /* Show bottom links horizontally scrollable */
+                .header-bottom {
+                    display: block !important;
+                    overflow-x: auto;
+                    white-space: nowrap;
+                    -webkit-overflow-scrolling: touch;
+                    padding: 8px 0;
+                    border-bottom: 1px solid rgba(201, 151, 58, 0.15);
+                }
+                .bottom-links {
+                    display: flex;
+                    flex-wrap: nowrap !important;
+                    justify-content: flex-start !important;
+                    gap: 25px !important;
+                    padding: 0 15px;
+                }
+                .bottom-links::-webkit-scrollbar {
+                    display: none;
+                }
+                
+                /* Visibility toggles */
                 .desktop-only { display: none !important; }
+                .mobile-only { display: flex !important; width: 100%; justify-content: center; }
             }
         </style>
         <div class="header-top">
@@ -1345,7 +1368,7 @@
                 </a>
             </div>
             
-            <div class="header-center search-container" style="flex: 1; display: flex; justify-content: center;">
+                        <div class="header-center search-container" style="flex: 1; display: flex; justify-content: center; align-items: center; gap: 15px;">
                 <div class="search-bar" style="width: 100%; max-width: 350px;">
                     <input type="text" id="searchInput" placeholder="Type to search.." onkeypress="if(event.key === 'Enter') handleSearch()">
                     <button onclick="handleSearch()">
@@ -1355,6 +1378,13 @@
                         </svg>
                     </button>
                 </div>
+                <a href="https://www.dpgold.com/" target="_blank" class="gold-rate-btn mobile-only" style="text-decoration: none; color: inherit; display: none;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    Today's Gold Rate
+                </a>
             </div>
 
             <div class="header-top-right" style="flex: 1; justify-content: flex-end; display: flex; align-items: center; gap: 16px;">
