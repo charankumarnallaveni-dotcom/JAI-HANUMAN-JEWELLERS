@@ -140,7 +140,7 @@
             object-fit: contain;
             mix-blend-mode: multiply;
             /* Bump brightness/contrast slightly so the logo's cream background becomes pure white, allowing it to blend perfectly */
-            filter: contrast(1.1) brightness(1.05);
+            
         }
 
         .header-top-right {
@@ -1291,14 +1291,13 @@
 
     <!-- HEADER -->
     <header>
-                                        <style>
+                                                <style>
             @media(max-width:900px) {
                 .header-top { flex-wrap: wrap !important; padding: 12px 4vw !important; border-bottom: none !important; }
                 .header-center.search-container { order: 3; flex: 1 1 100% !important; margin-top: 10px; padding-bottom: 10px; border-bottom: 1px solid rgba(201, 151, 58, 0.15); display: flex; flex-direction: column !important; align-items: center; gap: 10px !important; }
                 .search-bar { max-width: 100% !important; }
-                .nav-logo-img { max-height: 55px !important; }
+                .nav-logo-img { max-height: 75px !important; }
                 
-                /* Show bottom links horizontally scrollable */
                 .header-bottom {
                     display: block !important;
                     overflow-x: auto;
@@ -1318,9 +1317,13 @@
                     display: none;
                 }
                 
-                /* Visibility toggles */
+                .gallery-section, .hero, .product-section {
+                    padding-top: 250px !important;
+                }
+                
                 .desktop-only { display: none !important; }
                 .mobile-only { display: flex !important; width: 100%; justify-content: center; }
+                .craft-btn { display: none !important; }
             }
         </style>
         <div class="header-top">
